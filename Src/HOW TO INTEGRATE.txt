@@ -1,0 +1,10 @@
+﻿1. Unzip the ssdc.zip contents to a folder "NeoAxis Engine SDK" with the replacement of files!
+2. Download media archive: https://drive.google.com/file/d/0B9XXnF3rNTBkelFQSW1ORThRRDg/view?usp=sharing
+     and unzip the contents to a folder "NeoAxis Engine SDK" with the replacement of files.
+2. Open the "Microsoft Visual Studio", open the project "Game", then press "Add>Existing Item...", then select the "ActionGameWindow.cs" file and press "Add" button.
+3. then press "Add>Existing Item...", then select the "EngineLogoWindow.cs" file and press "Add" button.
+4. Open the project "ProjectEntities", open the folder "Action Specific", then press "Add>Existing Item...", then select the "PlayerIntellect.cs" file and press "Add" button.
+5. then press "Add>Existing Item...", then select the "SSDC.cs" file and press "Add" button.
+6. then press "Add>Existing Item...", then select the "SSDCAI.cs" file and press "Add" button.
+7. then press "Add>Existing Item...", then select the "EntityComponent_SSDC.cs" file and press "Add" button.
+8. Press button the Build or Rebuild solution.

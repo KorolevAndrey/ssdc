@@ -1,0 +1,9 @@
+highLevelMaterial DarkGray
+{
+	template = ShaderBaseMaterial
+	diffuseColor = 0.25 0.25 0.25
+	reflectionColor = 1 1 1
+	reflectionPower = 1.1
+	reflectionScaleDynamic = True
+	reflectionSpecificCubemap = "NatureSky\\Normal\\normal.tga"
+}

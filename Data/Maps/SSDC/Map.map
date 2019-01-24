@@ -1,0 +1,5404 @@
+type = GameMap
+uin = 2
+classPrompt = GameMap
+gameMusic = "Sounds\\Music\\Game.ogg"
+windDirection = 0
+windSpeed = 1
+playerUnitType = AudiR8
+resetYCoordinateForDynamicBodies = False
+destroyObjectsBelowHeight = -100
+ambientLight = 0.09803922 0.08627451 0.08235294
+editorCameraPosition = -433.4064 18.45425 20.96069
+editorCameraDirection = 0.939844 -0.6197255
+shadowColor = 0.7764707 0.7764707 0.7764707
+shadowFarDistance = 200
+shadowPSSMSplitFactors = 0.1 0.4
+nearFarClipDistance = 0.1 3000
+logicSystemManager = 3
+staticBatchingRenderingEnabled = False
+staticBatchingPhysicsEnabledInMapEditor = False
+staticBatchingPhysicsEnabledInSimulation = False
+staticBatchingGridCellSize = 30 30 30
+staticBatchingFilterByMaxTriangleCount = 512
+shadowTechnique = ShadowmapHighPSSM
+sceneGraphSettings
+{
+	amountOfObjectsOutsideOctreeBoundsToRebuld = 30
+	octreeBoundsRebuildExpand = 50 50 50
+	minNodeSize = 10 10 10
+	objectCountThresholdToCreateChildNodes = 10
+	maxNodeCount = 300000
+}
+dataForEditor
+{
+}
+tags
+{
+}
+rootEditorLayer
+{
+	name = Root Layer
+	layer
+	{
+		name = spawn
+	}
+	layer
+	{
+		name = road
+	}
+	layer
+	{
+		name = treeH
+	}
+	layer
+	{
+		name = curves
+	}
+}
+entity
+{
+	type = LogicSystemManager
+	uin = 3
+	referencesToCompileDLL = "System.dll\r\nSystem.Drawing.dll\r\n\r\nEngineApp.dll\r\nUISystem.dll\r\nFileSystem.dll\r\nLog.dll\r\nMathEx.dll\r\nRenderer.dll\r\nPhysicsSystem.dll\r\nSoundSystem.dll\r\nEntitySystem.dll\r\nMapSystem.dll\r\nUtils.dll\r\nHeightmapTerrain.dll\r\nDecorativeObjectManager.dll\r\n\r\nProjectCommon.dll\r\nProjectEntities.dll"
+	usingNamespacesToCodeGeneration = "using System;\r\nusing System.Collections.Generic;\r\nusing System.Text;\r\n\r\nusing Engine;\r\nusing Engine.FileSystem;\r\nusing Engine.MathEx;\r\nusing Engine.Utils;\r\nusing Engine.Renderer;\r\nusing Engine.PhysicsSystem;\r\nusing Engine.SoundSystem;\r\nusing Engine.UISystem;\r\nusing Engine.EntitySystem;\r\nusing Engine.MapSystem;\r\n\r\nusing ProjectCommon;\r\nusing ProjectEntities;"
+	mapClassManager = 4
+	tags
+	{
+	}
+	entity
+	{
+		type = LogicClassManager
+		uin = 4
+		tags
+		{
+		}
+	}
+}
+entity
+{
+	type = HeightmapTerrain
+	uin = 5
+	classPrompt = HeightmapTerrain
+	subscriptionsToDeletionEvent = 8
+	enabled = True
+	position = 0 0 0
+	horizontalSize = 2000
+	dataDirectory = HeightmapTerrain
+	masksSize = 2048
+	detailMapsDistance = 50
+	renderQueueGroup = WorldGeometry1
+	collision = True
+	collisionMaterialName = Default
+	collisionHeightfieldThickness = 2
+	castDynamicShadows = False
+	receiveStaticShadows = True
+	simpleRendering = False
+	tileSize = 64
+	visible = True
+	allowVertexTextureFetchOptimization = True
+	useFloat16BitHeightTexture = False
+	heightMultiplier = 1
+	heightmapTerrainManagerIndex = 0 0
+	ambientOcclusion
+	{
+		enabled = False
+		size = 1024
+		rayLength = 1
+		iterationCount = 100
+		blur = True
+		power = 1
+	}
+	lodSettings
+	{
+		enabled = True
+		maxCount = 99
+		lodLevelDistances = 100 + level * 200
+		morphAreaPercent = 0.3
+		showLevels = False
+	}
+	tags
+	{
+	}
+	layers
+	{
+		item
+		{
+			name = 2
+			baseMap = "Maps\\SSDC\\textures\\2.png"
+			baseScale = 5
+			detailScale = 2
+		}
+		item
+		{
+			name = 1
+			baseMap = "Maps\\SSDC\\textures\\1.png"
+			baseScale = 5
+			detailScale = 4
+			specularColor = 0.07843138 0.07450981 0.0627451
+			baseSpecularMap = "Maps\\SSDC\\textures\\1.png"
+		}
+		item
+		{
+			name = 3
+			baseMap = "Maps\\SSDC\\textures\\3.png"
+			baseScale = 10
+			detailScale = 2
+		}
+	}
+}
+entity
+{
+	type = Sun
+	uin = 6
+	classPrompt = Sun
+	billboardTexture = "Base\\Types\\Sun\\SunDefault.png"
+	billboardColor = 1 1 1
+	billboardPower = 1
+	billboardSize = 1
+	billboardRenderQueueGroup = Main
+	billboardOverridePosition = 0 0 0
+	enabled = True
+	lightType = Directional
+	diffuseColor = 1 1 1
+	diffusePower = 1.27
+	specularColor = 1 1 1
+	specularPower = 1.27
+	attenuationNear = 0
+	attenuationFar = 10
+	attenuationPower = 2
+	ffpAttenuationConstant = 1
+	ffpAttenuationLinear = 0
+	ffpAttenuationQuadric = 0
+	spotlightInnerAngle = 30
+	spotlightOuterAngle = 40
+	spotlightFalloff = 1
+	castShadows = True
+	allowStaticLighting = True
+	allowDynamicLighting = True
+	customShaderParameter = 0 0 0 0
+	position = 0 194.9993 7
+	rotation = 0.1441757 0.4830737 0.07262582 0.8605687
+	name = Sun_0
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCompositorManager
+	uin = 7
+	classPrompt = MapCompositorManager
+	tags
+	{
+	}
+	items
+	{
+		item
+		{
+			name = SSAO
+			Intensity = 1.5
+			Downsampling = 1
+			SampleLength = 2
+			OffsetScale = 0.05
+			DefaultAccessibility = 0.7
+			MaxDistance = 30
+			BlurSpread = 1
+			ShowAO = False
+			Enabled = True
+		}
+		item
+		{
+			name = LDRBloom
+			BloomBrightThreshold = 0.9
+			BloomScale = 1.5
+			Enabled = True
+		}
+		item
+		{
+			name = DepthOfField
+			FocalDistance = 1
+			AutoFocus = True
+			FocalSize = 1
+			BlurSpread = 0
+			BlurTextureResolution = 7
+			BackgroundTransitionLength = 400
+			BlurForeground = False
+			ForegroundTransitionLength = 0
+			AutoFocusRange = 1 80
+			AutoFocusTransitionSpeed = 100
+			Enabled = True
+		}
+		item
+		{
+			name = FXAA
+			Enabled = True
+		}
+	}
+}
+entity
+{
+	type = DecorativeObjectManager
+	uin = 8
+	classPrompt = DecorativeObjectManager
+	subscriptionsToDeletionEvent = 5
+	enabled = True
+	visible = True
+	geometries = 5
+	itemDataVersion = 2
+	tags
+	{
+	}
+	typeItems
+	{
+		item
+		{
+			type = TreeL
+			itemCount = 610
+		}
+		item
+		{
+			type = ShrubL
+			itemCount = 1742
+		}
+		item
+		{
+			type = Grass2
+			itemCount = 756335
+		}
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 9
+	classPrompt = StaticMesh
+	position = 2.009848 389.8472 0.1478293
+	scale = 2 2 1
+	name = StaticMesh_road_0
+	editorLayer = "Root Layer\\road"
+	meshName = "Types\\Units\\SSDC\\Road\\road.mesh"
+	collisionVehicleDrivableSurface = True
+	splitGeometry = True
+	splitGeometryPieceSize = 400 400 400
+	allowDecals = All
+	castDynamicShadows = False
+	castStaticShadows = False
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 10
+	classPrompt = StaticMesh
+	position = 134.1506 425.1287 0.6800475
+	scale = 1.290377 1.290377 1.290377
+	name = StaticMesh_treeH_0
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 11
+	classPrompt = StaticMesh
+	position = 106.2902 404.476 0.7048302
+	rotation = 0.06105217 -0.0509037 0.8839904 0.4606978
+	scale = 0.8598794 0.8598794 0.8598794
+	name = StaticMesh_26
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 12
+	classPrompt = StaticMesh
+	position = 27.7305 403.6291 0.2262206
+	rotation = 0 0 -0.8675382 0.4973706
+	scale = 1.290377 1.290377 1.290377
+	name = StaticMesh_27
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 13
+	classPrompt = StaticMesh
+	position = 21.95727 410.4513 0.2262206
+	rotation = 0 0 0.06062934 0.9981604
+	scale = 0.955513 0.955513 0.955513
+	name = StaticMesh_28
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 14
+	classPrompt = StaticMesh
+	position = -134.9122 357.4078 0.2262206
+	rotation = 0 0 0.8453889 0.5341511
+	scale = 0.955513 0.955513 0.955513
+	name = StaticMesh_29
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 15
+	classPrompt = StaticMesh
+	position = -130.2712 365.0454 0.2262206
+	rotation = 0 0 -0.1034194 0.9946378
+	scale = 1.290377 1.290377 1.290377
+	name = StaticMesh_30
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 16
+	classPrompt = StaticMesh
+	position = -117.5835 408.5056 1.157597
+	rotation = 0 0 0.4813786 0.8765129
+	scale = 0.9626508 0.9626508 0.9626508
+	name = StaticMesh_31
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 17
+	classPrompt = StaticMesh
+	position = -154.1642 411.4911 2.616557
+	rotation = 0 0 0.9991043 -0.04231542
+	scale = 0.7128345 0.7128345 0.7128345
+	name = StaticMesh_32
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 18
+	classPrompt = StaticMesh
+	position = -244.2634 425.7157 2.186915
+	rotation = 0 0 0.4944629 0.8691987
+	scale = 1.290377 1.290377 1.290377
+	name = StaticMesh_33
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 19
+	classPrompt = StaticMesh
+	position = -251.3774 440.0675 0.7535625
+	rotation = 0.01807734 -0.0168368 0.6813444 0.731546
+	name = StaticMesh_34
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 20
+	classPrompt = StaticMesh
+	position = -272.3119 438.4295 1.695464
+	rotation = 0.02431669 0.004355035 0.9940642 -0.1059535
+	name = StaticMesh_35
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 21
+	classPrompt = StaticMesh
+	position = -369.3989 426.4166 3.830559
+	rotation = -0.02342854 -0.007834008 -0.9682051 0.248935
+	scale = 1.380494 1.380494 1.380494
+	name = StaticMesh_36
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 22
+	classPrompt = StaticMesh
+	position = -378.7064 421.4628 3.685287
+	rotation = -0.02110527 0.01283883 -0.8150509 -0.5788625
+	scale = 0.6476729 0.6476729 0.6476729
+	name = StaticMesh_37
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 23
+	classPrompt = StaticMesh
+	position = -351.859 459.1029 3.899339
+	rotation = -0.01467166 0.01987486 -0.5351471 -0.8443976
+	scale = 1.086703 1.086703 1.086703
+	name = StaticMesh_38
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 24
+	classPrompt = StaticMesh
+	position = -362.9753 467.1654 2.67766
+	rotation = -0.001885029 0.02463158 -0.00534609 -0.9996805
+	scale = 0.7759283 0.7759283 0.7759283
+	name = StaticMesh_39
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 25
+	classPrompt = StaticMesh
+	position = -374.701 464.2144 3.366657
+	rotation = 0.01113447 0.02205202 0.5127842 -0.858162
+	scale = 0.7759283 0.7759283 0.7759283
+	name = StaticMesh_40
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 26
+	classPrompt = StaticMesh
+	position = -390.393 455.7247 3.193913
+	rotation = -0.01685793 0.1128677 0.6757585 -0.7282357
+	scale = 0.7759283 0.7759283 0.7759283
+	name = StaticMesh_41
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 27
+	classPrompt = StaticMesh
+	position = -457.6029 371.5536 1.143682
+	rotation = -0.02137768 0.01237993 -0.827365 -0.561121
+	scale = 0.8319191 0.8319191 0.8319191
+	name = StaticMesh_42
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 28
+	classPrompt = StaticMesh
+	position = -413.3277 358.0841 1.148692
+	rotation = 0.02063995 0.01357425 0.872129 -0.4886518
+	scale = 1.380494 1.380494 1.380494
+	name = StaticMesh_43
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 29
+	classPrompt = StaticMesh
+	position = -486.2023 319.7617 0.9563007
+	rotation = -0.01405393 -0.02031637 -0.6256447 0.779717
+	scale = 0.6951154 0.6951154 0.6951154
+	name = StaticMesh_44
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 30
+	classPrompt = StaticMesh
+	position = -473.3184 328.8411 0.7529955
+	rotation = -0.02451767 0.00302521 -0.9809799 -0.1925311
+	scale = 1.022244 1.022244 1.022244
+	name = StaticMesh_45
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 31
+	classPrompt = StaticMesh
+	position = -596.3226 293.9184 1.629437
+	rotation = -0.02525873 0.04030257 0.2789423 -0.9591292
+	scale = 1.380494 1.380494 1.380494
+	name = StaticMesh_46
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 32
+	classPrompt = StaticMesh
+	position = -564.9233 266.3315 1.997999
+	rotation = -0.03056777 -0.03644053 -0.99842 0.02991661
+	scale = 0.7299735 0.7299735 0.7299735
+	name = StaticMesh_47
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 33
+	classPrompt = StaticMesh
+	position = -598.5483 284.0894 1.573886
+	rotation = 0.02793507 -0.05027288 0.4904738 0.8695562
+	scale = 0.8595591 0.8595591 0.8595591
+	name = StaticMesh_48
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 34
+	classPrompt = StaticMesh
+	position = -562.1143 136.9409 0.6726775
+	rotation = 0.001950197 -0.04752365 -0.7178295 0.6945922
+	scale = 1.380494 1.380494 1.380494
+	name = StaticMesh_49
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 35
+	classPrompt = StaticMesh
+	position = -551.5029 128.2301 0.6726775
+	rotation = -0.03749972 -0.03833169 -0.9793259 0.1950516
+	scale = 1.12208 1.12208 1.12208
+	name = StaticMesh_50
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 36
+	classPrompt = StaticMesh
+	position = -552.8945 108.3666 0.6726775
+	rotation = 0.03470129 -0.04088237 0.1036924 0.9931628
+	scale = 1.211963 1.211963 1.211963
+	name = StaticMesh_51
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 37
+	classPrompt = StaticMesh
+	position = -574.9904 51.51251 0.2800875
+	rotation = 0.0496202 0.02033184 0.976438 0.209029
+	scale = 1.211963 1.211963 1.211963
+	name = StaticMesh_52
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 38
+	classPrompt = StaticMesh
+	position = -509.667 53.46783 0.2800875
+	rotation = 0.05271607 -0.009826668 0.7070302 0.7051473
+	scale = 1.211963 1.211963 1.211963
+	name = StaticMesh_53
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 39
+	classPrompt = StaticMesh
+	position = -407.912 2.246296 0.2800875
+	rotation = 0.04031156 -0.03536277 0.2479463 0.9672885
+	scale = 0.977144 0.977144 0.977144
+	name = StaticMesh_54
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 40
+	classPrompt = StaticMesh
+	position = -330.4904 -10.46421 3.407883
+	rotation = 0.04189138 0.03347624 0.9957964 -0.07425596
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_55
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 41
+	classPrompt = StaticMesh
+	position = -317.1497 -10.46421 3.407883
+	rotation = 0.05221188 0.01222564 0.9310718 0.3608736
+	scale = 1.652265 1.652265 1.652265
+	name = StaticMesh_56
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 42
+	classPrompt = StaticMesh
+	position = -317.1497 -29.71434 3.407883
+	rotation = 0.05358524 -0.00204177 0.8022177 0.5946187
+	scale = 1.015959 1.015959 1.015959
+	name = StaticMesh_57
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 43
+	classPrompt = StaticMesh
+	position = -327.1317 -44.09863 3.407883
+	rotation = 0.04207312 -0.03324755 0.2972569 0.9532906
+	scale = 1.015959 1.015959 1.015959
+	name = StaticMesh_58
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 44
+	classPrompt = StaticMesh
+	position = -356.6493 -238.9995 0.04111814
+	rotation = 0.04189138 0.03347624 0.9957964 -0.07425596
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_59
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 45
+	classPrompt = StaticMesh
+	position = -313.8495 -262.5038 1.343289
+	rotation = 0.04549677 -0.02838293 0.4010152 0.9145006
+	scale = 0.7900099 0.7900099 0.7900099
+	name = StaticMesh_60
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 46
+	classPrompt = StaticMesh
+	position = -447.7067 -412.1318 3.025922
+	rotation = 0.02585876 -0.04697735 -0.09629373 0.9939075
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_61
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 47
+	classPrompt = StaticMesh
+	position = -447.7067 -428.55 2.595503
+	rotation = -0.001954081 0.01370994 -0.8799642 0.4748382
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_62
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 48
+	classPrompt = StaticMesh
+	position = -484.2675 -414.0915 1.769328
+	rotation = 0.007013327 0.01194128 -0.9841431 -0.1768349
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_63
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 49
+	classPrompt = StaticMesh
+	position = -490.8018 -437.3265 1.043548
+	rotation = 0.01181888 0.007217682 -0.7841824 -0.6203759
+	scale = 0.7617733 0.7617733 0.7617733
+	name = StaticMesh_64
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 50
+	classPrompt = StaticMesh
+	position = -447.7067 -560.7516 -0.1971731
+	rotation = -0.001954081 0.01370994 -0.8799642 0.4748382
+	scale = 1.280452 1.280452 1.280452
+	name = StaticMesh_65
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 51
+	classPrompt = StaticMesh
+	position = -429.4554 -571.8868 -0.1971731
+	rotation = 0.006590744 0.01217961 -0.9897334 -0.142254
+	scale = 1.123025 1.123025 1.123025
+	name = StaticMesh_66
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 52
+	classPrompt = StaticMesh
+	position = -391.3687 -524.3066 0.7718859
+	rotation = -0.01078842 0.02337962 -0.6221114 -0.7825053
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_67
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 53
+	classPrompt = StaticMesh
+	position = -341.838 -520.7678 0.5891309
+	rotation = 0.02565162 -0.002234173 0.9880681 -0.1518508
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_68
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 54
+	classPrompt = StaticMesh
+	position = -145.871 -503.2626 0.2274828
+	rotation = 0.02565162 -0.002234173 0.9880681 -0.1518508
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_69
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 55
+	classPrompt = StaticMesh
+	position = -107.6937 -473.4827 -0.3672514
+	rotation = 0.02565162 -0.002234173 0.9880681 -0.1518508
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_70
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 56
+	classPrompt = StaticMesh
+	position = -163.3482 -417.5014 -1.761997
+	rotation = 0.0160162 -0.0201613 0.7896639 0.6129994
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_71
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 57
+	classPrompt = StaticMesh
+	position = -29.87031 -196.6037 -0.1690407
+	rotation = -0.02060034 0.01544742 -0.919174 -0.3930095
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_72
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 58
+	classPrompt = StaticMesh
+	position = 219.8455 -302.2551 -0.298399
+	rotation = 0.02341716 0.0107067 0.7846733 -0.6193748
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_73
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 59
+	classPrompt = StaticMesh
+	position = 240.8207 -302.2551 -0.298399
+	rotation = -0.002830487 0.02559268 -0.3423323 -0.9392263
+	scale = 1.288598 1.288598 1.288598
+	name = StaticMesh_74
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 60
+	classPrompt = StaticMesh
+	position = 259.9094 -318.7025 -0.298399
+	rotation = 0.02234862 -0.01278812 0.9606357 0.2766159
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_75
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 61
+	classPrompt = StaticMesh
+	position = 251.8945 -382.858 0.002101898
+	rotation = 0.02565529 -0.002191603 0.9878147 -0.1534902
+	scale = 1.662777 1.662777 1.662777
+	name = StaticMesh_76
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 62
+	classPrompt = StaticMesh
+	position = 270.7803 -392.111 0.7987003
+	rotation = 0.01875478 -0.01764243 0.8697692 0.4927866
+	scale = 1.292388 1.292388 1.292388
+	name = StaticMesh_77
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 63
+	classPrompt = StaticMesh
+	position = 315.6218 -382.6283 0.5367527
+	rotation = 0.02521619 -0.00520968 0.9990339 -0.0356155
+	scale = 0.8971354 0.8971354 0.8971354
+	name = StaticMesh_78
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 64
+	classPrompt = StaticMesh
+	position = 473.4882 -247.1129 -0.1386523
+	rotation = -0.02361578 0.01026118 -0.9851692 -0.1696436
+	scale = 1.085779 1.085779 1.085779
+	name = StaticMesh_79
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 65
+	classPrompt = StaticMesh
+	position = 487.1082 -227.8847 -0.1386523
+	rotation = -0.02572274 0.001156563 -0.9808315 0.1931498
+	scale = 1.085779 1.085779 1.085779
+	name = StaticMesh_80
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 66
+	classPrompt = StaticMesh
+	position = 487.1082 -210.7677 -0.1386523
+	rotation = -0.002653276 0.02561166 -0.3358231 -0.9415732
+	scale = 0.7808512 0.7808512 0.7808512
+	name = StaticMesh_81
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 67
+	classPrompt = StaticMesh
+	position = 418.6196 -75.26357 1.204576
+	rotation = -0.02323956 0.01108691 -0.9785801 -0.2042506
+	scale = 0.7808512 0.7808512 0.7808512
+	name = StaticMesh_82
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 68
+	classPrompt = StaticMesh
+	position = 373.5144 -86.08589 1.204576
+	rotation = -0.02305138 -0.01147304 -0.7638234 0.6449116
+	scale = 0.7808512 0.7808512 0.7808512
+	name = StaticMesh_83
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 69
+	classPrompt = StaticMesh
+	position = 361.6047 -93.17762 2.105346
+	rotation = -0.006849213 0.02482106 -0.4868042 -0.8731316
+	scale = 1.085779 1.085779 1.085779
+	name = StaticMesh_84
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 70
+	classPrompt = StaticMesh
+	position = 341.4632 -79.69156 0.3488817
+	rotation = 0.01666343 0.01962975 0.4478078 -0.8937591
+	scale = 1.085779 1.085779 1.085779
+	name = StaticMesh_85
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 71
+	classPrompt = StaticMesh
+	position = 301.6058 18.27031 -1.744907
+	rotation = -0.02556367 0.003081515 -0.9925506 0.1190821
+	scale = 1.085779 1.085779 1.085779
+	name = StaticMesh_86
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 72
+	classPrompt = StaticMesh
+	position = 285.7982 133.0121 0.4847641
+	rotation = -0.008568178 0.02428133 -0.5466704 -0.836952
+	scale = 0.7980921 0.7980921 0.7980921
+	name = StaticMesh_87
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 73
+	classPrompt = StaticMesh
+	position = 310.9805 265.0723 -0.04005671
+	rotation = -0.02545047 -0.003907764 -0.9239463 0.381655
+	scale = 0.7980921 0.7980921 0.7980921
+	name = StaticMesh_88
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 74
+	classPrompt = StaticMesh
+	position = 268.6574 331.473 0.4154906
+	rotation = 0.01014402 -0.02366634 0.6004455 0.7992512
+	scale = 1.205647 1.205647 1.205647
+	name = StaticMesh_89
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 75
+	classPrompt = StaticMesh
+	position = 249.3689 345.1452 0.4154906
+	rotation = -0.02081315 -0.01515947 -0.645471 0.7633507
+	scale = 0.9799631 0.9799631 0.9799631
+	name = StaticMesh_90
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 76
+	classPrompt = StaticMesh
+	position = 254.0753 337.8083 0.4154906
+	rotation = -0.004765068 -0.02530397 0.05319294 0.9982524
+	scale = 0.7653789 0.7653789 0.7653789
+	name = StaticMesh_91
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 77
+	classPrompt = StaticMesh
+	position = 196.0694 358.2545 0.8292923
+	rotation = -0.02081315 -0.01515947 -0.645471 0.7633507
+	scale = 0.9799631 0.9799631 0.9799631
+	name = StaticMesh_92
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 78
+	classPrompt = StaticMesh
+	position = 200.7758 350.9176 0.8292923
+	rotation = -0.004765068 -0.02530397 0.05319294 0.9982524
+	scale = 0.7653789 0.7653789 0.7653789
+	name = StaticMesh_93
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 79
+	classPrompt = StaticMesh
+	position = 215.358 344.5823 0.8292923
+	rotation = 0.01014402 -0.02366634 0.6004455 0.7992512
+	scale = 1.205647 1.205647 1.205647
+	name = StaticMesh_94
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 80
+	classPrompt = StaticMesh
+	position = 148.8851 407.7275 0.3748317
+	rotation = -0.009345469 -0.0239929 -0.1316344 0.990964
+	scale = 0.9799631 0.9799631 0.9799631
+	name = StaticMesh_95
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 81
+	classPrompt = StaticMesh
+	position = 157.5174 408.9377 0.3748317
+	rotation = 0.009639742 -0.02387619 0.5833573 0.8118076
+	scale = 0.7653789 0.7653789 0.7653789
+	name = StaticMesh_96
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = StaticMesh
+	uin = 82
+	classPrompt = StaticMesh
+	position = 195.3477 377.5754 0.3141365
+	rotation = 0.0006084954 -0.02574153 0.2598956 0.9652935
+	scale = 1.205647 1.205647 1.205647
+	name = StaticMesh_97
+	editorLayer = "Root Layer\\treeH"
+	meshName = "Types\\Units\\SSDC\\TreeAndShrub\\treeH.mesh"
+	collision = False
+	castDynamicShadows = True
+	tags
+	{
+	}
+}
+entity
+{
+	type = Fog
+	uin = 83
+	classPrompt = Fog
+	enabled = True
+	mode = Exp2
+	color = 0.2980392 0.3568628 0.1254902
+	expDensity = 0.0025
+	tags
+	{
+	}
+}
+entity
+{
+	type = SkyBox
+	uin = 84
+	classPrompt = SkyBox
+	enabled = True
+	textureName = "Types\\Units\\SSDC\\Sky\\ssdcsky.tga"
+	color = 1 1 1
+	power = 1
+	tags
+	{
+	}
+}
+entity
+{
+	type = AudiR8_AI_1
+	uin = 85
+	classPrompt = SSDC
+	subscriptionsToDeletionEvent = 88 88 88 88 88 88 88
+	tireType = Wets
+	autoGear = True
+	autoGearAutoReverse = True
+	intellectShouldDeleteAfterDetach = False
+	initialAI = SSDCAI
+	healthFactorAtBeginning = 1
+	position = -396.8593 20.00698 2.993546
+	rotation = -0.009880384 -0.001082853 0.9883664 0.151767
+	autoVerticalAlignment = ByBoundsWithRotation
+	name = AudiR8_1
+	tags
+	{
+	}
+	components
+	{
+		component
+		{
+			type = ProjectEntities.EntityComponent_SSDC
+			way = 88
+			name = component2
+			enabled = True
+			onlyForEditor = False
+		}
+	}
+}
+entity
+{
+	type = AudiR8_AI_2
+	uin = 86
+	classPrompt = SSDC
+	subscriptionsToDeletionEvent = 88 88 88 88
+	tireType = Wets
+	autoGear = True
+	autoGearAutoReverse = True
+	intellectShouldDeleteAfterDetach = False
+	initialAI = SSDCAI
+	healthFactorAtBeginning = 1
+	position = -371.0761 14.45024 3.539473
+	rotation = -0.0119362 -0.006101862 0.9924263 0.1221079
+	autoVerticalAlignment = ByBoundsWithRotation
+	name = AudiR8_2
+	tags
+	{
+	}
+	components
+	{
+		component
+		{
+			type = ProjectEntities.EntityComponent_SSDC
+			way = 88
+			name = component1
+			enabled = True
+			onlyForEditor = False
+		}
+	}
+}
+entity
+{
+	type = SpawnPoint
+	uin = 87
+	classPrompt = SpawnPoint
+	defaultPoint = False
+	position = -417.6925 26.39126 1.880742
+	rotation = 0 0 -0.9954105 -0.09569716
+	name = SpawnPoint_0
+	editorLayer = "Root Layer\\spawn"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurve
+	uin = 88
+	classPrompt = MapCurve
+	subscriptionsToDeletionEvent = 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 85 86 85 86 85 86 85 86 85 85 85
+	curveType = UniformCubicSpline
+	points = 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222
+	roundedLineCurveCurvatureRadius = 1
+	owner = 88
+	time = 0
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -426.3573 29.32093 1.708316
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	name = curve_ai
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 89
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 1
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -449.6905 33.40275 1.251504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 90
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 2
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -506.0189 38.55636 0.304024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 91
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 3
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -518.8856 42.47088 0.2640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 92
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 4
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -533.9235 48.04314 0.2740241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 93
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 5
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -548.3576 57.56542 0.2840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 94
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 6
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -559.1834 70.8353 0.2840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 95
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 7
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -567.9949 89.54838 0.2640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 96
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 8
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -575.3907 123.869 0.2740241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 97
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 9
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -585.4131 152.485 0.722764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 98
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 10
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -601.3221 177.4749 1.808984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 99
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 11
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -605.1387 189.0262 2.208984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 100
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 12
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -601.1302 203.1723 2.277724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 101
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 13
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -588.8042 240.8613 2.108984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 102
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 14
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -577.6451 289.2202 1.500244
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 103
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 15
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -569.7322 310.9201 1.091504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 104
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 16
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -556.7874 325.8787 0.7527641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 105
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 17
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -533.3746 337.27 0.4627641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 106
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 18
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -490.9239 343.9126 0.2840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 107
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 19
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -469.2823 348.2525 0.2440241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 108
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 20
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -445.0212 356.9507 0.4627642
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 109
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 21
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -427.8248 372.5263 1.111504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 110
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 22
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -414.7392 393.219 2.028984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 111
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 23
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -401.2209 418.5659 3.135204
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 112
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 24
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -385.2696 436.2491 3.873944
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 113
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 25
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -372.0357 442.6989 4.142684
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 114
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 26
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -352.7761 443.0041 4.202686
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 115
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 27
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -319.8748 432.4795 3.823673
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 116
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 28
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -256.5307 404.542 2.966464
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 117
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 29
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -194.2846 392.5451 2.437724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 118
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 30
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -142.0135 381.4261 1.041504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 119
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 31
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -117.1335 385.3149 0.4427641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 120
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 32
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -83.10095 401.0926 0.2340241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 121
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 33
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -69.56469 403.179 0.2340241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 122
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 34
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -55.95532 399.1677 0.2240241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 123
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 35
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -31.70322 389.5464 0.2240241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 124
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 36
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 14.40368 389.5464 0.2340242
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 125
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 37
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 45.5423 389.5464 0.2140241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 126
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 38
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 59.15797 393.7101 0.2140241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 127
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 39
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 74.45361 407.6585 0.2140241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 128
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 40
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 95.35605 426.9285 0.2640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 129
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 41
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 119.0713 439.777 0.2740241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 130
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 42
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 144.4303 439.777 0.2640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 131
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 43
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 159.2427 432.9722 0.2740241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 132
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 44
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 171.9605 415.9297 0.2840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 133
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 45
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 174.8745 391.4703 0.2740241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 134
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 46
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 180.3867 348.5714 0.592764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 135
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 47
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 195.8694 329.2505 1.111504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 136
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 48
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 223.9527 319.8545 1.261504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 137
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 49
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 270.1454 316.045 0.8627641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 138
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 50
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 292.442 308.7026 0.6327641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 139
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 51
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 313.5132 292.904 0.3937531
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 140
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 52
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 328.3221 265.2917 0.364024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 141
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 53
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 339.6109 224.1838 0.364024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 142
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 54
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 340.8221 187.1898 0.394024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 143
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 55
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 336.5156 165.8807 0.3240241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 144
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 56
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 327.2265 145.3083 0.07375315
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 145
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 57
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 312.3951 121.297 -0.6034559
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 146
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 58
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 291.0637 91.7587 -1.590936
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 147
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 59
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 279.8756 67.82574 -2.258416
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 148
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 60
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 277.9864 46.11561 -2.418416
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 149
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 61
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 282.7397 27.45337 -2.189676
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 150
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 62
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 295.6602 3.091965 -1.500936
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 151
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 63
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 316.7644 -23.28467 -0.5934559
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 152
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 64
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 343.9229 -48.9684 -0.02471597
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 153
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 65
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 372.1668 -68.17609 0.07375315
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 154
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 66
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 412.6073 -92.45503 0.364024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 155
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 67
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 436.9836 -116.8583 0.414024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 156
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 68
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 455.6945 -152.2681 0.354024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 157
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 69
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 462.9504 -185.3117 0.344024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 158
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 70
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 462.9504 -228.0037 0.424024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 159
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 71
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 457.3054 -254.6724 0.822764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 160
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 72
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 445.2401 -284.158 1.560244
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 161
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 73
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 428.8472 -306.1522 2.218984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 162
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 74
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 401.0487 -328.5537 2.667724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 163
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 75
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 368.1 -343.123 2.487724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 164
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 76
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 335.5767 -351.6144 1.858984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 165
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 77
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 287.5385 -356.0314 0.921504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 166
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 78
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 245.9699 -353.4939 0.502764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 167
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 79
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 223.1645 -346.5928 0.3840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 168
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 80
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 206.9059 -328.0301 0.01402405
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 169
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 81
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 200.6005 -307.3991 -0.314716
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 170
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 82
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 190.7237 -289.2185 -0.8034559
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 171
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 83
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 174.2111 -270.6787 -1.052196
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 172
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 84
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 142.5137 -258.103 -1.202196
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 173
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 85
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 99.0229 -251.6561 -1.162196
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 174
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 86
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 59.98512 -241.2372 -0.9321959
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 175
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 87
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = 16.36233 -225.1451 -0.633456
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 176
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 88
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -16.31589 -217.2839 -0.304716
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 177
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 89
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -33.71422 -222.4448 -0.05471597
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 178
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 90
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -43.28182 -239.8759 0.02402405
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 179
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 91
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -53.25304 -270.0554 0.344024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 180
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 92
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -69.26723 -296.714 -0.005975951
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 181
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 93
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -103.0078 -314.6932 -0.9221959
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 182
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 94
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -123.2108 -328.4666 -1.480936
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 183
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 95
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -132.9209 -351.5093 -1.819676
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 184
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 96
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -132.9209 -391.193 -1.770936
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 185
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 97
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -132.9209 -429.3995 -1.102196
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 186
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 98
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -137.6858 -452.4161 -0.434716
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 187
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 99
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -149.9495 -469.5186 0.104024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 188
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 100
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -174.0427 -483.3667 0.1640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 189
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 101
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -197.4312 -485.2259 0.304024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 190
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 102
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -229.993 -489.2123 0.334024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 191
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 103
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -256.4785 -498.1109 0.2640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 192
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 104
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -287.0869 -515.4617 0.1640241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 193
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 105
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -311.9216 -532.141 0.2340241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 194
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 106
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -343.1826 -553.9239 0.374024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 195
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 107
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -367.4097 -562.5558 0.3840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 196
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 108
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -391.7691 -557.7056 0.4037531
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 197
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 109
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -419.8515 -541.3547 0.434024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 198
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 110
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -444.4129 -518.4955 0.434024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 199
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 111
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -465.6616 -486.0078 0.334024
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 200
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 112
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -471.0147 -455.2346 0.692764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 201
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 113
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -468.4243 -421.9913 2.098984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 202
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 114
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -460.5348 -384.3714 4.062685
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 203
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 115
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -454.401 -342.7346 5.080165
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 204
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 116
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -445.3273 -313.7699 5.190166
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 205
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 117
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -433.1801 -298.0983 4.791424
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 206
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 118
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -418.5435 -288.4725 4.322684
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 207
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 119
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -387.8521 -277.737 3.405204
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 208
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 120
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -362.3754 -269.4267 2.447724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 209
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 121
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -340.1492 -259.9112 1.550244
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 210
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 122
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -326.0501 -246.7005 0.8327641
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 211
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 123
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -323.0305 -232.7524 0.482764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 212
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 124
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -330.3538 -210.139 0.2840241
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 213
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 125
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -350.9153 -170.3193 0.522764
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 214
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 126
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -357.8202 -142.5297 1.111504
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 215
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 127
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -355.6162 -116.1681 1.958984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 216
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 128
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -348.3688 -84.22865 2.826464
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 217
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 129
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -343.5868 -54.93066 3.255204
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 218
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 130
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -344.7364 -33.44557 3.315204
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 219
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 131
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -348.8409 -16.55537 3.265204
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 220
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 132
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -360.1375 0.8849297 3.036464
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 221
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 133
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -381.903 14.84532 2.597724
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = MapCurvePoint
+	uin = 222
+	classPrompt = MapCurvePoint
+	subscriptionsToDeletionEvent = 88
+	owner = 88
+	time = 134
+	roundedLineCurveOverrideCurvatureRadius = -1
+	position = -401.4903 22.45746 2.208984
+	rotation = 0 0 -0.9957854 -0.0917142
+	autoVerticalAlignment = ByBounds
+	editorLayer = "Root Layer\\curves"
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 223
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -576.6557 86.19542 0.9844869
+	name = ExplosionBarrel_0
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 224
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -575.9405 93.29822 1.003924
+	name = ExplosionBarrel_1
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 225
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -578.5728 93.41171 0.9842029
+	name = ExplosionBarrel_2
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 226
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -580.7504 100.858 0.9542422
+	name = ExplosionBarrel_3
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 227
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -578.3077 78.80718 1.085377
+	name = ExplosionBarrel_4
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 228
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -555.1453 340.2632 1.386853
+	name = ExplosionBarrel_5
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 229
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -558.8504 337.2208 1.462849
+	name = ExplosionBarrel_6
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 230
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -560.6614 339.3643 1.51943
+	name = ExplosionBarrel_7
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 231
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -564.2552 336.7173 1.509186
+	name = ExplosionBarrel_8
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 232
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -565.823 331.0374 1.602217
+	name = ExplosionBarrel_9
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 233
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -569.2969 331.1156 1.611943
+	name = ExplosionBarrel_10
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 234
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -570.2632 332.7427 1.711067
+	name = ExplosionBarrel_11
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 235
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -296.3319 429.1917 4.240183
+	name = ExplosionBarrel_12
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 236
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -304.5661 429.0351 4.380324
+	name = ExplosionBarrel_13
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 237
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -306.8313 426.1469 4.444402
+	name = ExplosionBarrel_14
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 238
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -309.7278 423.3944 4.533773
+	name = ExplosionBarrel_15
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 239
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -311.77 428.6445 4.511971
+	name = ExplosionBarrel_16
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 240
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -312.9193 431.3782 4.504196
+	name = ExplosionBarrel_17
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 241
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -318.3483 431.4854 4.617519
+	name = ExplosionBarrel_18
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 242
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -322.2413 437.2806 4.62861
+	name = ExplosionBarrel_19
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 243
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 75.58005 397.8492 1.120023
+	name = ExplosionBarrel_20
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 244
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 54.66327 395.7566 0.9934647
+	name = ExplosionBarrel_21
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 245
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 41.16758 392.5851 1.000673
+	name = ExplosionBarrel_22
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 246
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 51.16133 386.6738 1.056385
+	name = ExplosionBarrel_23
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 247
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 47.14149 384.5566 1.079
+	name = ExplosionBarrel_24
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 248
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 281.8673 14.21689 -0.7284484
+	name = ExplosionBarrel_25
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 249
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 293.8611 4.4274 -0.6952882
+	name = ExplosionBarrel_26
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 250
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 295.662 7.855196 -0.9437802
+	name = ExplosionBarrel_27
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 251
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 289.8555 15.2094 -1.119724
+	name = ExplosionBarrel_28
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 252
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 287.3612 23.71071 -1.411435
+	name = ExplosionBarrel_29
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 253
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 286.8573 18.64475 -1.16484
+	name = ExplosionBarrel_30
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 254
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 194.0909 -326.3537 -0.02197438
+	name = ExplosionBarrel_31
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 255
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 189.6198 -323.0426 -0.1320302
+	name = ExplosionBarrel_32
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 256
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 191.2375 -320.3029 -0.06597234
+	name = ExplosionBarrel_33
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 257
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 189.8592 -332.7666 -0.2054255
+	name = ExplosionBarrel_34
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 258
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 194.466 -335.2148 0.03962958
+	name = ExplosionBarrel_35
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 259
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 198.2279 -331.61 0.08675887
+	name = ExplosionBarrel_36
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 260
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 196.7649 -324.4482 0.0975824
+	name = ExplosionBarrel_37
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 261
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 199.9349 -321.8412 0.3802401
+	name = ExplosionBarrel_38
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 262
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -42.52303 -230.4574 1.058805
+	name = ExplosionBarrel_39
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 263
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -41.24157 -224.4841 1.24398
+	name = ExplosionBarrel_40
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 264
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -41.42876 -219.8273 1.492418
+	name = ExplosionBarrel_41
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 265
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -37.47585 -218.3694 1.318007
+	name = ExplosionBarrel_42
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 266
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -33.334 -216.0872 1.184154
+	name = ExplosionBarrel_43
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 267
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -33.38343 -212.4897 1.423245
+	name = ExplosionBarrel_44
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 268
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -29.52283 -210.059 1.441475
+	name = ExplosionBarrel_45
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 269
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -28.44571 -214.3488 1.08787
+	name = ExplosionBarrel_46
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 270
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -34.08117 -214.5491 1.346757
+	name = ExplosionBarrel_47
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 271
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -36.6155 -214.7584 1.489261
+	name = ExplosionBarrel_48
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 272
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -42.42691 -220.6195 1.532196
+	name = ExplosionBarrel_49
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 273
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -45.3731 -226.9683 1.473524
+	name = ExplosionBarrel_50
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 274
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -337.0499 -249.102 1.522684
+	name = ExplosionBarrel_51
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 275
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -340.0557 -253.9337 1.881171
+	name = ExplosionBarrel_52
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 276
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -338.9029 -255.8851 2.048299
+	name = ExplosionBarrel_53
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 277
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -344.5714 -256.9418 2.125567
+	name = ExplosionBarrel_54
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 278
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -346.557 -253.5726 1.763137
+	name = ExplosionBarrel_55
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 279
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -353.7767 -252.6212 1.961406
+	name = ExplosionBarrel_56
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 280
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -355.3046 -251.4348 1.868764
+	name = ExplosionBarrel_57
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 281
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -356.8921 -256.6627 2.174082
+	name = ExplosionBarrel_58
+	tags
+	{
+	}
+}
+entity
+{
+	type = ExplosionBarrel
+	uin = 282
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -362.1599 -258.9162 2.260268
+	name = ExplosionBarrel_59
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 283
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -611.3712 184.0893 2.654739
+	name = WoodBox_0
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 284
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -611.1557 184.008 3.666033
+	name = WoodBox_1
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 285
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -608.6617 185.9952 2.683371
+	name = WoodBox_2
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 286
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -606.0007 183.197 2.598789
+	name = WoodBox_3
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 287
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -603.4633 186.9872 2.709619
+	name = WoodBox_4
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 288
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -601.8187 185.5735 2.695089
+	name = WoodBox_5
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 289
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -605.6752 182.8533 3.611537
+	name = WoodBox_6
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 290
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -613.0609 179.8425 2.511503
+	name = WoodBox_7
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 291
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -610.8794 183.7508 4.68071
+	name = WoodBox_8
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 292
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -597.4897 191.691 2.829357
+	name = WoodBox_9
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 293
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -441.6322 364.3839 1.073165
+	name = WoodBox_10
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 294
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -444.5196 357.3332 0.9815503
+	name = WoodBox_11
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 295
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -461.1595 357.5357 0.8522658
+	name = WoodBox_12
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 296
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -466.4953 357.3765 0.9206895
+	name = WoodBox_13
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 297
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -419.6131 353.2412 1.8735
+	name = WoodBox_14
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 298
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -175.7566 397.9179 2.491676
+	name = WoodBox_15
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 299
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -196.8554 403.4445 3.202834
+	name = WoodBox_16
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 300
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -202.2001 391.4939 3.140719
+	name = WoodBox_17
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 301
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -189.8868 392.5146 2.85433
+	name = WoodBox_18
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 302
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -182.8803 390.4145 2.711979
+	name = WoodBox_19
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 303
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 14.17552 401.0372 0.7377026
+	name = WoodBox_20
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 304
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 5.476655 395.5155 0.7315003
+	name = WoodBox_21
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 305
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -15.13418 399.1893 0.7701449
+	name = WoodBox_22
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 306
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 3.923857 380.9899 0.7646101
+	name = WoodBox_23
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 307
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 181.29 416.6821 0.6676999
+	name = WoodBox_24
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 308
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 178.8564 405.2008 0.7150301
+	name = WoodBox_25
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 309
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 338.5943 187.862 1.065385
+	name = WoodBox_26
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 310
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 343.9713 169.0996 0.5428777
+	name = WoodBox_27
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 311
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 333.0192 158.7088 0.8642486
+	name = WoodBox_28
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 312
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 462.1293 -160.999 0.6204672
+	name = WoodBox_29
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 313
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 459.4578 -164.2113 0.8745471
+	name = WoodBox_30
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 314
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 454.3488 -170.8527 1.345297
+	name = WoodBox_31
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 315
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 453.0286 -177.5814 1.52175
+	name = WoodBox_32
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 316
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 451.7402 -287.8878 1.595722
+	name = WoodBox_33
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 317
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 83.93103 -256.7415 -1.115909
+	name = WoodBox_34
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 318
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 93.04315 -258.0052 -1.10717
+	name = WoodBox_35
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 319
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 99.06161 -249.1071 -0.404544
+	name = WoodBox_36
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 320
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = 109.3717 -241.1342 0.3028191
+	name = WoodBox_37
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 321
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -119.4567 -335.1241 -1.64874
+	name = WoodBox_38
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 322
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -136.0276 -338.7976 -0.5214981
+	name = WoodBox_39
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 323
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -137.4672 -332.8688 -0.1003856
+	name = WoodBox_40
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 324
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -131.0414 -324.4983 -0.02255376
+	name = WoodBox_41
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 325
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -128.2144 -344.1136 -1.452321
+	name = WoodBox_42
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 326
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -128.2932 -361.5045 -1.825928
+	name = WoodBox_43
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 327
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -136.2055 -360.1345 -1.104314
+	name = WoodBox_44
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 328
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -348.6474 -567.7617 0.2801935
+	name = WoodBox_45
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 329
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -345.061 -559.2979 0.672923
+	name = WoodBox_46
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 330
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -336.0453 -550.5002 0.8418694
+	name = WoodBox_47
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 331
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -328.9249 -554.6575 0.3376818
+	name = WoodBox_48
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 332
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -370.4258 -549.7512 1.538401
+	name = WoodBox_49
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 333
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -352.8585 -546.0706 1.597171
+	name = WoodBox_50
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 334
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -352.1671 -551.888 1.332289
+	name = WoodBox_51
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 335
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -363.5975 -556.6667 1.332248
+	name = WoodBox_52
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 336
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -372.7861 -565.0372 0.7733114
+	name = WoodBox_53
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 337
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -355.9855 -263.2 2.444997
+	name = WoodBox_54
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 338
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -355.0145 -269.9637 3.061491
+	name = WoodBox_55
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 339
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -349.8368 -264.7756 2.545827
+	name = WoodBox_56
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 340
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -349.2756 -262.1546 2.325928
+	name = WoodBox_57
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 341
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -342.87 -260.795 2.193899
+	name = WoodBox_58
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 342
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -336.091 -259.3948 2.128958
+	name = WoodBox_59
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 343
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -333.6804 -253.5964 1.697197
+	name = WoodBox_60
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 344
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -333.298 -262.0925 2.402961
+	name = WoodBox_61
+	tags
+	{
+	}
+}
+entity
+{
+	type = WoodBox
+	uin = 345
+	classPrompt = Dynamic
+	healthFactorAtBeginning = 1
+	position = -343.7975 -268.4601 2.899281
+	name = WoodBox_62
+	tags
+	{
+	}
+}

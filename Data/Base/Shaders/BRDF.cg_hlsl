@@ -1,0 +1,48 @@
+//constants
+#define PI 3.1415926535f//3.1415926535897932384626433832f
+#define e 2.7182818284f//2.71828182845904523536028747135f
+
+half sqr(half x) { return x*x; }
+
+half3 Diffuse_Lambert( half3 diffuse )
+{
+	return diffuse * (1 / PI);
+}
+//Burley 2012, Physically-Based Shading at Disney
+half3 Diffuse_Burley( half3 diffuse, half roughness, half NoV, half NoL, half VoH )
+{
+	half FD90 = 0.5 + 2 * VoH * VoH * roughness;
+	half viewScatter = 1 + (FD90 - 1) * pow( 1 - NoV, 5 );
+	half lightScatter = 1 + (FD90 - 1) * pow( 1 - NoL, 5 );
+	return diffuse * ( 1 / PI * viewScatter * lightScatter );
+}
+
+half F_Schlick(half f0, half NoV)
+{
+	return lerp(pow(1.0 - NoV, 5.0), 1,f0);
+}
+
+
+half D_Beckmann(half NoH, half roughness )
+{
+	half R_sqr = sqr(roughness);
+	half NoH_sqr = sqr(NoH);
+	
+	half d_a = pow(e,(NoH_sqr-1)/(R_sqr*NoH_sqr));
+	half d_b = 4 * sqr(R_sqr);
+	
+	return d_a/d_b;
+}
+
+half G_Term(half NoH, half NoL, half NoV, half VoH)
+{
+	half a = min((2*(NoH*NoV)/VoH),(2*(NoH*NoL)/VoH));
+	return min(1,a);
+}
+
+half SpecularBRDF(half NoV, half NoL, half NoH, half VoH, half roughness, half fresnel)
+{
+	half D = D_Beckmann( NoH, roughness );
+	half G = G_Term( NoH, NoL, NoV, VoH );
+	return ( D * fresnel * G ) / ( NoV* NoL );
+}
